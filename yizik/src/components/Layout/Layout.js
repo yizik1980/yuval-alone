@@ -1,39 +1,6 @@
 import Breweries from '../brewery/Breweries.vue'
 import Header from '../brewery/header.vue'
-const breweriesList = [{
-    "id": "10-56-brewing-company-knox",
-    "name": "10-56 Brewing Company",
-    "brewery_type": "micro",
-    "street": "400 Brown Cir",
-    "address_2": null,
-    "address_3": null,
-    "city": "Knox",
-    "state": "Indiana",
-    "county_province": null,
-    "postal_code": "46534",
-    "country": "United States",
-    "longitude": "-86.627954",
-    "latitude": "41.289715",
-    "phone": "6308165790",
-    "website_url": null,
-    "updated_at": "2021-10-23T02:24:55.243Z",
-    "created_at": "2021-10-23T02:24:55.243Z"
-}];
-breweriesList.map(item => {
-    return {
-        state: {
-            [item.state]: {
-                stateName: item.state,
-                breweries: {
-                    [item.name]: {
-                        city: item.city,
-                        street: item.street
-                    }
-                }
-            }
-        }
-    }
-})
+
 
 
 export default {
@@ -46,6 +13,7 @@ export default {
     data() {
         return {
             list: [],
+            mainObList: []
         }
     },
     computed: {},
@@ -53,13 +21,31 @@ export default {
         try {
             let res = await fetch('https://api.openbrewerydb.org/breweries');
             let list = await res.json();
-            this.list = list;
+            this.list = list.map(item => {
+                return {
+                    ...item,
+                    state: {
+                        [item.state]: {
+                            stateName: item.state,
+                            breweries: {
+                                [item.name]: {
+                                    city: item.city,
+                                    street: item.street
+                                }
+                            }
+                        }
+                    }
+                }
+            }).sort((a, b) => (a.city > b.city) ? 1 : ((b.city > a.city) ? -1 : 0));
+            console.log(this.list);
         } catch {
             new Error('breweries api fail')
         }
 
     },
     methods: {
+        createArray() {
 
+        }
     }
 }

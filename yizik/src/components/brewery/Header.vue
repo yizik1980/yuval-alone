@@ -1,6 +1,10 @@
 <template>
     <header>
-        <nav><a>home</a><a>other stuff</a></nav>
+        <nav>
+            <aside>
+                <button type="button" @click="createArray">create array</button>
+            </aside>
+        </nav>
     </header>
 </template>
 <script>
@@ -10,7 +14,9 @@ export default {
 
     },
     methods: {
-        
+        createArray(event){
+            console.log(event,this);
+        }
     },
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
     <section class="brewery-item">
     <div>
-        <p>{{data.name}}</p>
+        <p>{{data.city}}</p>
     </div>
 </section>
 </template>
