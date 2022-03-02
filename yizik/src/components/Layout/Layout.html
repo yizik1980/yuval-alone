@@ -1,7 +1,4 @@
 <section class="layout">
-
-    <div v-for="(item, index) in list" :key="index">
-        <brewery :data="item"></brewery>
-    </div>
-
+<Header/>
+    <Breweries :list="list"/>
 </section>

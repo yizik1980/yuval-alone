@@ -1,5 +1,5 @@
-import brewery from '../breweryItem/breweryItem';
-
+import Breweries from '../brewery/Breweries.vue'
+import Header from '../brewery/header.vue'
 const breweriesList = [{
     "id": "10-56-brewing-company-knox",
     "name": "10-56 Brewing Company",
@@ -39,7 +39,8 @@ breweriesList.map(item => {
 export default {
     name: 'layout',
     components: {
-        brewery
+        Breweries,
+        Header
     },
     props: [],
     data() {
