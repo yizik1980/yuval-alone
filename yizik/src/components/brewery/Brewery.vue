@@ -1,8 +1,7 @@
 <template>
     <section class="brewery-item">
-    <div>
-        <p>{{data.city}}</p>
-    </div>
+    <p>{{data.city}}</p>
+
 </section>
 </template>
 <script >
@@ -30,5 +29,12 @@ export default {
 }
 </script>
 <style scoped>
-
+section{
+    cursor: pointer;
+}
+p{
+    background: cornflowerblue;
+    padding: 5px 5px 2px 5px;
+    color:#fff;
+}
 </style>
