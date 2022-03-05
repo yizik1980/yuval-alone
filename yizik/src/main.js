@@ -1,4 +1,7 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+const app = createApp(App);
+app.provide('globalService', {
 
-createApp(App).mount('#app')
+})
+app.mount('#app')

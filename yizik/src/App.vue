@@ -1,12 +1,9 @@
 <script setup>
-import Layout from './components/Layout/index.vue'
+import Layout from './components/Layout/index.vue';
 </script>
 
 <template>
-<div>
   <Layout></Layout>
-</div>
-
 </template>
 
 <style>
@@ -17,4 +14,5 @@ import Layout from './components/Layout/index.vue'
   box-sizing:content-box;
 }
 .flex{display: flex;}
+
 </style>

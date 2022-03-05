@@ -1,8 +1,11 @@
 <template>
     <header>
-        <nav>
-            <aside>
-                <button type="button" @click="createArray">create array</button>
+        <nav class="flex p-2">
+            <aside class="m-1">
+                <button class="btn btn-primary"  type="button" @click="createArray">create array</button>
+            </aside>
+             <aside class="m-1" >
+                <button class="btn btn-primary" type="button" @click="insertItem">insert item</button>
             </aside>
         </nav>
     </header>
@@ -15,7 +18,10 @@ export default {
     },
     methods: {
         createArray(event){
-            console.log(event,this);
+               this.$emit('insert','something')
+        },
+        insertItem(){
+         
         }
     },
 }

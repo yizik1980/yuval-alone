@@ -18,33 +18,37 @@ export default {
     },
     computed: {},
     async mounted() {
-        try {
-            let res = await fetch('https://api.openbrewerydb.org/breweries');
-            let list = await res.json();
-            this.list = list.map(item => {
-                return {
-                    ...item,
-                    state: {
-                        [item.state]: {
-                            stateName: item.state,
-                            breweries: {
-                                [item.name]: {
-                                    city: item.city,
-                                    street: item.street
+
+
+    },
+    methods: {
+        async createArray() {
+            try {
+                let res = await fetch('https://api.openbrewerydb.org/breweries');
+                let list = await res.json();
+                this.list = list.map(item => {
+                    return {
+                        ...item,
+                        state: {
+                            [item.state]: {
+                                stateName: item.state,
+                                breweries: {
+                                    [item.name]: {
+                                        city: item.city,
+                                        street: item.street
+                                    }
                                 }
                             }
                         }
                     }
-                }
-            }).sort((a, b) => (a.city > b.city) ? 1 : ((b.city > a.city) ? -1 : 0));
-            console.log(this.list);
-        } catch {
-            new Error('breweries api fail')
-        }
+                }).sort((a, b) => (a.city > b.city) ? 1 : ((b.city > a.city) ? -1 : 0));
+                console.log(this.list);
+            } catch {
+                new Error('breweries api fail')
+            }
 
-    },
-    methods: {
-        createArray() {
+        },
+        doInsertion(event) {
 
         }
     }
