@@ -1,5 +1,5 @@
 <section class="layout">
-    <Header @insert="createArray" />
+    <Header @insert="createArray" @showpop="showPopup" />
     <Breweries :list="list" />
-    <Popup></Popup>
+    <Popup :show="show"  ></Popup>
 </section>

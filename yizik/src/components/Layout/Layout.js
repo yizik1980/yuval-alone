@@ -1,6 +1,6 @@
 import Breweries from '../brewery/Breweries.vue';
 import Header from '../brewery/header.vue';
-import Popup from './Pupup.vue';
+import Popup from '../Popup.vue';
 
 export default {
     name: 'layout',
@@ -13,8 +13,12 @@ export default {
     data() {
         return {
             list: [],
-            mainObList: []
+            mainObList: [],
+            show:false
         }
+    },
+    mounted() {
+        this.showPopup = false;
     },
     computed: {},
     methods: {
@@ -44,8 +48,9 @@ export default {
             }
 
         },
-        doInsertion(event) {
-
+        showPopup(event) { 
+            this.show = !this.show;
+            console.log(this.show);
         }
     }
 }

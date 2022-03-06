@@ -1,14 +1,14 @@
 <template>
-    <div class="input"><label for="{{name}}"></label><input type="text" id="{{name}}" @keydown="keyDown" @keypress="keyPress"></div>
+    <div class="input"><label :for="inputName">{{inputName}}</label><input :placeholder="value" type="text" :id="inputName" @keydown="keyDown" @keypress="keyPress"></div>
 </template>
 <script>
 export default {
     name:'InputField',
-    props:['name'],
-    computed:{
+    props:{
         value:String,
-        name:String
-    },methods: {
+        inputName:String
+    }
+    ,methods: {
         keyPress:(e)=>{
             
             console.dir(e.target,this.props);
@@ -16,8 +16,21 @@ export default {
     },
 }
 </script>
-<style >
+<style>
+
 .input{
     display: block;
 }
+    label{
+        display: inline-block;
+        vertical-align: middle;
+        width: 40%;
+        white-space: nowrap;
+        text-align: left;
+    }
+    input{
+        width: 50%;
+        vertical-align: middle;
+        margin-right: 2%;
+    }
 </style>

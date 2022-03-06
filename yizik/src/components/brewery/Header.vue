@@ -18,10 +18,11 @@ export default {
     },
     methods: {
         createArray(event){
-               this.$emit('insert','something')
+              this.$emit('insert','something')
         },
-        insertItem(){
-         
+        insertItem(event){
+            console.dir(event);
+            this.$emit('showpop','');
         }
     },
 }
