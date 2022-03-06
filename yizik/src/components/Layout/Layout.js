@@ -1,13 +1,13 @@
-import Breweries from '../brewery/Breweries.vue'
-import Header from '../brewery/header.vue'
-
-
+import Breweries from '../brewery/Breweries.vue';
+import Header from '../brewery/header.vue';
+import Popup from './Pupup.vue';
 
 export default {
     name: 'layout',
     components: {
         Breweries,
-        Header
+        Header,
+        Popup
     },
     props: [],
     data() {
@@ -17,10 +17,6 @@ export default {
         }
     },
     computed: {},
-    async mounted() {
-
-
-    },
     methods: {
         async createArray() {
             try {

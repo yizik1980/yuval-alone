@@ -3,7 +3,10 @@ import Layout from './components/Layout/index.vue';
 </script>
 
 <template>
+<div>
   <Layout></Layout>
+</div>
+
 </template>
 
 <style>
